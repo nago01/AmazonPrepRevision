@@ -21,6 +21,7 @@ function googleCalender() {
       let day = document.createElement('div');
       day.innerText = item + '/' + apiRepsonse.month + '/' + apiRepsonse.year;
       day.id = 'day' + item;
+      day.tabIndex = 0;
       day.classList.add('cellCnt');
       let newText = document.createElement('h4');
       newText.innerText = 'day' + item;
@@ -28,13 +29,30 @@ function googleCalender() {
       grid.append(day);
     });
   }
-  handleDays();
+  let selectedDay = -1;
   grid.addEventListener(
     'click',
     (e) => {
-      console.log(e.target.id);
-    },
-    false
+      if(e.target.id.substr(0,3) == 'day'){
+      selectedDay = e.target.id;
+      }
+      // console.log(selectedDay , 'selectedDay');
+      document.getElementById(selectedDay)?.focus();
+    }
   );
+  let currTask = "";
+  document.getElementById('taskInput')?.addEventListener('input',(e)=>{
+     currTask = e.target.value;
+  });
+  document.getElementById('btnId').addEventListener('click', ()=>{
+      let task = document.createElement('div');
+      
+      task.innerText = currTask;
+      document.getElementById(selectedDay)?.appendChild(task);
+      document.getElementById('taskInput').value = "";
+  })
+  handleDays();
+ 
 }
+
 googleCalender();

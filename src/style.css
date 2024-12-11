@@ -1,6 +1,6 @@
 .calenderCnt {
   display: flex;
-  width: 1000px;
+  width: 100%;
   height: 1000px;
   background-color: bisque;
 }
@@ -19,9 +19,19 @@
 }
 .cellCnt {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 2px solid black;
   margin: 10px;
   background-color: white;
+  border-radius: 20px;
+}
+
+.cellCnt:hover {
+  border: 2px solid red;
+}
+
+.cellCnt:focus {
+  border: 5px solid green !important;
 }
