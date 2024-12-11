@@ -1,0 +1,27 @@
+.calenderCnt {
+  display: flex;
+  width: 1000px;
+  height: 1000px;
+  background-color: bisque;
+}
+
+.gridCnt {
+  display: grid;
+  width: 500px;
+  grid-template-columns: repeat(7, 1fr);
+}
+@media (min-width: 300px) and (max-width: 600px) {
+  .gridCnt {
+    display: grid;
+    width: 500px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.cellCnt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  margin: 10px;
+  background-color: white;
+}
